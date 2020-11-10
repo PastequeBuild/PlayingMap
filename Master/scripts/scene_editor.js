@@ -11,7 +11,8 @@ let selectedTexture = 'eraser'
 
 let scene = localStorage.getItem('scene')
 scene = JSON.parse(scene)
-console.log('initialized scene', scene)
+let sceneName = localStorage.getItem('sceneName')
+console.log('initialized scene', sceneName)
 
 const db = firebase.database()
 
@@ -49,8 +50,8 @@ function initMap() {
 		for (let j = 0; j < mapWidth; j++) {
 			let newSquareElt = createSquare(j, i)
 			newSquareElt.id = 'square:' + j + '-' + i
-			if (scene[i][j] !== null) {
-				newSquareElt.style.backgroundImage = "url('../" + scene[i][j] + "')"
+			if (scene[mapHeight - 1 - i][j] !== null) {
+				newSquareElt.style.backgroundImage = "url('../" + scene[mapHeight - 1 - i][j] + "')"
 				newSquareElt.style.outlineWidth = '0px'
 			}
 			newLineElt.appendChild(newSquareElt)
@@ -111,7 +112,7 @@ document.addEventListener('mousemove', e => {
 		const x = Math.floor(e.clientX/squareSize)
 		const y = Math.floor((screenHeight-e.clientY)/squareSize)
 		if (x >= 0 && x < mapWidth && y >= 0 && y < mapHeight) {
-			document.getElementById('coords').textContent = x + ' ' + y
+			//document.getElementById('coords').textContent = x + ' ' + y
 			let divY = mapHeight-y-1
 
 			if (selectedTexture === 'eraser') {
@@ -124,7 +125,7 @@ document.addEventListener('mousemove', e => {
 				document.getElementById('square:' + x + '-' + divY).style.outlineWidth = '0px'		
 			}
 		} else {
-			document.getElementById('coords').textContent = 'hors zone'
+			//document.getElementById('coords').textContent = 'hors zone'
 		}
 	}
 })
@@ -138,7 +139,6 @@ for (item of document.getElementsByClassName('inventoryItem')) {
 			selectedTexture = 'eraser'
 		} else {
 			const src = 'images' + e.target.src.split('images')[1]
-			console.log('src', src)
 			selectedTexture = src
 		}
 	}
@@ -147,7 +147,7 @@ for (item of document.getElementsByClassName('inventoryItem')) {
 // --- SAVE SCENE --- //
 
 document.getElementById('saveButton').onclick = e => {
-	db.ref('scenes/default').set(JSON.stringify(scene))
+	db.ref('scenes/' + sceneName).set(JSON.stringify(scene))
 }
 
 

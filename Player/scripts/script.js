@@ -216,9 +216,12 @@ window.addEventListener("beforeunload", e => {
 
 // --- EXECUTION --- //
 
-db.ref('scenes/default').once('value').then( snap => {
-	scene = JSON.parse(snap.val())
-	initMap(scene)
+db.ref('selectedScene').once('value').then( selectedSceneSnap => {
+	const selectedScene = selectedSceneSnap.val()
+	db.ref('scenes/' + selectedScene).once('value').then( sceneSnap => {
+		scene = JSON.parse(sceneSnap.val())
+		initMap(scene)
+	})
 })
 
 document.onkeypress = e => {
