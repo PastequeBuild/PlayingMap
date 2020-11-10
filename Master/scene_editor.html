@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Playing Map - MJ</title>
+	<meta charset='utf-8' />
+	<link rel='stylesheet' href='./styles/scene_editor.css'>
+</head>
+<body>
+
+	<div id='mainContainer'>
+
+		<div id='bannerContainer'>
+			<button id='saveButton'>Sauvegarder la scène</button>
+			<button id='eraseAllButton'>Tout effacer</button>
+			<span id='coords'></span>
+		</div>
+
+		<div id='mapContainer'>
+		</div>
+
+		<div id='inventoryContainer'>
+			<div id='inventory'>
+				<button class='inventoryItem'> <image class='inventoryItemImage' alt='eraser' src='../images/eraser.png' /> </button>
+				<button class='inventoryItem'> <image class='inventoryItemImage' alt='grass_1' src='../images/textures/grounds/grass_1.png' /> </button>
+				<button class='inventoryItem'> <image class='inventoryItemImage' alt='sand_1' src='../images/textures/grounds/sand_1.png' /> </button>
+				<button class='inventoryItem'> <image class='inventoryItemImage' alt='sand_2' src='../images/textures/grounds/sand_2.png' /> </button>
+				<button class='inventoryItem'> <image class='inventoryItemImage' alt='cobble_1' src='../images/textures/grounds/cobble_1.png' /> </button>
+				<button class='inventoryItem'> <image class='inventoryItemImage' alt='cobble_2' src='../images/textures/grounds/cobble_2.png' /> </button>
+				<button class='inventoryItem'> <image class='inventoryItemImage' alt='cobble_3' src='../images/textures/grounds/cobble_3.png' /> </button>
+				<button class='inventoryItem'> <image class='inventoryItemImage' alt='cobble_4' src='../images/textures/grounds/cobble_4.png' /> </button>
+				<button class='inventoryItem'> <image class='inventoryItemImage' alt='iron_1' src='../images/textures/grounds/iron_1.png' /> </button>
+				<button class='inventoryItem'> <image class='inventoryItemImage' alt='wood_1' src='../images/textures/grounds/wood_1.png' /> </button>
+				<button class='inventoryItem'> <image class='inventoryItemImage' alt='lava_1' src='../images/textures/grounds/lava_1.png' /> </button>
+			</div>
+		</div>
+	</div>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+	<script>
+	  // Your web app's Firebase configuration
+	  const firebaseConfig = {
+	    apiKey: "AIzaSyCaHFX6_TD8xhWLu75c0SdpfOlkF1qVjEk",
+	    authDomain: "playing-map.firebaseapp.com",
+	    databaseURL: "https://playing-map.firebaseio.com",
+	    projectId: "playing-map",
+	    storageBucket: "playing-map.appspot.com",
+	    messagingSenderId: "125195930351",
+	    appId: "1:125195930351:web:f29511b2a73b513c67291a"
+	  }
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig)
+	  firebase.database()
+	</script>
+
+	<script src='./scripts/scene_editor.js'></script>
+</body>
+</html>

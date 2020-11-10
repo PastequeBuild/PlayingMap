@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Playing Map - MJ</title>
+	<meta charset='utf-8' />
+	<link rel='stylesheet' href='./styles/index.css'>
+</head>
+<body>
+
+	<div id='mainContainer'>
+
+		<h1>Maître de jeu</h1>
+
+		<button id='createSceneButton'>Créer une nouvelle scène</button>
+
+		<h2>Scènes</h2>
+
+		<button id='defaultSceneButton'>Default</button>
+
+	</div>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+	<script>
+	  // Your web app's Firebase configuration
+	  const firebaseConfig = {
+	    apiKey: "AIzaSyCaHFX6_TD8xhWLu75c0SdpfOlkF1qVjEk",
+	    authDomain: "playing-map.firebaseapp.com",
+	    databaseURL: "https://playing-map.firebaseio.com",
+	    projectId: "playing-map",
+	    storageBucket: "playing-map.appspot.com",
+	    messagingSenderId: "125195930351",
+	    appId: "1:125195930351:web:f29511b2a73b513c67291a"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig)
+	  firebase.database()
+	</script>
+
+	<script src='./scripts/index.js'></script>
+</body>
+</html>
